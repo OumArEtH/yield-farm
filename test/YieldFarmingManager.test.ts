@@ -1,5 +1,5 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+import { expect } from 'chai';
+import { ethers } from 'hardhat';
 
 describe("YieldFarmingManager", function () {
     it("Should successfully deploy contract", async function () {
@@ -12,7 +12,10 @@ describe("YieldFarmingManager", function () {
       const YieldFarmingManager = await ethers.getContractFactory("YieldFarmingManager");
       const yFManager = await YieldFarmingManager.deploy(ppgov.address, 0, 10, 1);
       await yFManager.deployed();
+
+      await ppgov.transfer(yFManager.address, ethers.utils.parseEther("100"))
   
       expect(await yFManager.governanceToken()).to.equal(ppgov.address);
+      expect(await ppgov.balanceOf(yFManager.address)).to.equal(ethers.utils.parseEther("100"));
     });
   });

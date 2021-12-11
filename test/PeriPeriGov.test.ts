@@ -1,5 +1,5 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+import { expect } from 'chai';
+import { ethers } from 'hardhat';
 
 describe("PeriPeriGov", function () {
   it("Should successfully deploy contract", async function () {

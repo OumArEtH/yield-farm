@@ -1,5 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-etherscan";
+import "@nomiclabs/hardhat-ethers";
 
 import * as dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/config';
