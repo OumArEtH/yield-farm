@@ -47,6 +47,14 @@ contract YieldFarmingManager is Context, Ownable {
         rewardPerBlock = _rewardPerBlock;
     }
 
+    function getUserLPBalance(uint256 _poolId, address _user) public view returns (uint256) {
+        return userInfo[_poolId][_user].amountLPToken;
+    }
+
+    function getPoolDetails(uint256 _poolId) public view returns (PoolInfo memory) {
+        return poolInfo[_poolId];
+    }
+
     function poolLength() external view returns (uint256) {
         return poolInfo.length;
     }
